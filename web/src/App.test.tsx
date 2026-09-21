@@ -3,9 +3,10 @@ import { describe, expect, it } from 'vitest';
 import { App } from './App';
 
 describe('App', () => {
-  it('introduces the runnable approval automation', () => {
+  it('shows the support inbox UI', () => {
     render(<App />);
-    expect(screen.getByRole('heading', { name: /approval automation/i })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /start process/i })).toBeEnabled();
+    expect(screen.getByRole('heading', { name: /inbox/i })).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/search by subject/i)).toBeInTheDocument();
   });
 });
+

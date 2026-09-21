@@ -1,17 +1,17 @@
 :root { font-family: Inter, ui-sans-serif, system-ui, sans-serif; color: #e8edf8; background: #07111f; font-synthesis: none; }
 * { box-sizing: border-box; }
 body { margin: 0; min-width: 320px; min-height: 100vh; background: radial-gradient(circle at 80% 0%, #18385a 0, transparent 35%), #07111f; }
-main { width: min(980px, calc(100% - 40px)); margin: 0 auto; padding: 72px 0; }
-header { max-width: 760px; margin-bottom: 40px; }
-h1 { margin: 8px 0 16px; font-size: clamp(2.6rem, 7vw, 5.4rem); line-height: .96; letter-spacing: -.06em; }
+main { width: min(1200px, calc(100% - 40px)); margin: 0 auto; padding: 48px 0; }
+header { max-width: 1000px; margin-bottom: 24px; }
+h1 { margin: 8px 0 8px; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1; letter-spacing: -.02em; }
 h2 { margin: 4px 0; }
 .eyebrow { margin: 0; color: #6ae4c4; font-size: .72rem; font-weight: 800; letter-spacing: .2em; }
 .lede { color: #aab8cc; font-size: 1.15rem; }
-.panel { margin-top: 18px; padding: 24px; border: 1px solid #29415d; border-radius: 20px; background: rgba(12, 28, 47, .88); box-shadow: 0 24px 80px rgba(0,0,0,.25); }
+.panel { margin-top: 18px; padding: 16px; border: 1px solid #29415d; border-radius: 12px; background: rgba(12, 28, 47, .9); box-shadow: 0 24px 80px rgba(0,0,0,.25); }
 label { display: block; margin-bottom: 10px; font-size: .82rem; font-weight: 700; color: #aab8cc; }
 .form-row, .actions, .process-heading { display: flex; gap: 12px; align-items: center; justify-content: space-between; }
-input { flex: 1; min-width: 0; padding: 14px 16px; border: 1px solid #36506d; border-radius: 12px; color: white; background: #091727; font: inherit; }
-button { padding: 13px 18px; border: 0; border-radius: 12px; background: #6ae4c4; color: #06131f; font: inherit; font-weight: 800; cursor: pointer; }
+input { flex: 1; min-width: 0; padding: 10px 12px; border: 1px solid #36506d; border-radius: 10px; color: white; background: #071827; font: inherit; }
+button { padding: 10px 12px; border: 0; border-radius: 10px; background: #6ae4c4; color: #06131f; font: inherit; font-weight: 700; cursor: pointer; }
 button:disabled { opacity: .45; cursor: wait; }
 .status { padding: 7px 10px; border-radius: 999px; color: #6ae4c4; background: #11372f; font-size: .75rem; text-transform: uppercase; }
 .timeline { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin: 28px 0; padding: 0; list-style: none; }
@@ -22,3 +22,33 @@ button:disabled { opacity: .45; cursor: wait; }
 .result { padding: 14px; border-radius: 12px; color: #06131f; background: #6ae4c4; font-weight: 800; }
 .error { color: #ff9d9d; }
 @media (max-width: 760px) { .timeline { grid-template-columns: repeat(2, 1fr); } .form-row { align-items: stretch; flex-direction: column; } }
+
+/* Inbox specific */
+.inbox-controls { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+.inbox-controls input { flex: 1; }
+.tag-row { display: flex; gap: 8px; }
+.tag-row button { background: transparent; color: #aab8cc; border: 1px solid #27485f; padding: 8px 10px; border-radius: 10px; }
+.tag-row button.active { background: #183a2f; color: #6ae4c4; border-color: #6ae4c4; }
+
+.inbox-body { display: grid; grid-template-columns: 336px 1fr; gap: 16px; margin-top: 6px; }
+.list { overflow: auto; max-height: 64vh; }
+.message { padding: 12px; border-radius: 10px; border: 1px solid transparent; background: transparent; cursor: pointer; margin-bottom: 8px; }
+.message.selected { background: rgba(12, 40, 36, 0.6); border-color: #27485f; }
+.message .meta { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.message .subject { font-weight: 700; }
+.message .from { color: #90a2b8; font-size: .85rem; }
+.message .bottom { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 8px; }
+.badge { font-size: .75rem; padding: 6px 8px; border-radius: 999px; background: #0f2b2a; color: #6ae4c4; margin-left: 6px; }
+.badge.unread { background: #ff6b6b; color: white; }
+.badge.tag { background: transparent; border: 1px solid rgba(255,255,255,0.03); color: #aab8cc; }
+
+.detail { padding: 12px; border-left: 1px solid rgba(255,255,255,0.02); }
+.detail-header { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.muted { color: #90a2b8; font-size: .9rem; margin: 4px 0 0; }
+.action-buttons button { margin-left: 8px; }
+.detail-body { margin-top: 16px; color: #e8edf8; }
+
+@media (max-width: 880px) {
+  .inbox-body { grid-template-columns: 1fr; }
+  .detail { border-left: none; }
+}
